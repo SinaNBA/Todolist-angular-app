@@ -7,13 +7,15 @@ import { AboutComponent } from './about/about.component';
 import { ListComponent } from './list/list.component';
 import { HomeComponent } from './home/home.component';
 import { FormsModule } from '@angular/forms';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 @NgModule({
-  declarations: [
+  declarations: [	
     AppComponent,
     AboutComponent,
     ListComponent,
-      HomeComponent
+      HomeComponent,
+      PageNotFoundComponent
    ],
   imports: [
     BrowserModule,
