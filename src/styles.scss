@@ -58,13 +58,17 @@ form.item {
 
 button {
   min-height: 50px;
-  width: 50px;
+  min-width: 50px;
   border-radius: 50%;
   border-color: transparent;
   background-color: #a683e3;
   color: #fff;
   font-size: 30px;
   border-width: 0;
+}
+button:hover{
+  color: darkorange;
+  cursor: pointer;
 }
 
 input[type="text"] {
