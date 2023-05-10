@@ -1,24 +1,29 @@
 <div class="box" id="heading">
-  <h1><%= listTitle %></h1>
+  <h1>Todo List ({{ itemCounter }})</h1>
 </div>
 
 <div class="box">
   <!-- <% newListItems.forEach(function (item) { %> -->
-  <form action="/delete" method="post">
+  <form>
     <div class="item">
       <input
-        type="checkbox"
-        name="checkbox"
-        value="<%= item._id %>"
-        onchange="this.form.submit()"
+        type="text"
+        placeholder="Enter a task"
+        name="taskText"
+        [(ngModel)]="projectText"
       />
-      <p><%= item.name %></p>
+      <!-- <p><%= item.name %></p> -->
+      <button type="submit" (click)="addItem()">+</button>
     </div>
     <input type="hidden" name="listName" value="<%= listTitle %>" />
   </form>
-  <% }) %>
 
-  <form class="item" action="/" method="post">
+  <div class="box">
+    <p class="item" *ngFor="let item of projects; let i=index">{{ item }}<button (click)="removeItem(i)">-</button></p>
+
+  </div>
+
+  <!-- <form class="item" action="/" method="post">
     <input
       type="text"
       name="newItem"
@@ -26,5 +31,5 @@
       autocomplete="off"
     />
     <button type="submit" name="list" value="<%= listTitle %> ">+</button>
-  </form>
+  </form> -->
 </div>
