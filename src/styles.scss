@@ -94,25 +94,28 @@ footer {
   text-align: center;
 }
 
-ul{
+ul {
   list-style-type: none;
   margin: 0 0 2em 0;
   padding: 20px;
 }
 
-ul li{
+ul li {
   display: inline;
   margin-right: 30px;
 }
 
-a{
+a {
   color: #00204a;
   text-decoration: none;
   font-size: large;
-
 }
 
-a:hover{
+a:hover {
   color: #db7a7a;
   font-size: medium;
+}
+
+.active {
+  color: #a683e3;
 }

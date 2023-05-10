@@ -1,1 +1,23 @@
+<ul>
+  <li>
+    <a
+      routerLink=""
+      routerLinkActive="active"
+      [routerLinkActiveOptions]="{ exact: true }"
+      >Home</a
+    >
+  </li>
+  <li><a routerLink="about" routerLinkActive="active">About</a></li>
+  <li><a routerLink="list" routerLinkActive="active">Todo List</a></li>
+  <li>
+    <a routerLink="profile" [queryParams]="{ id: 1 }" routerLinkActive="active"
+      >Profile User 1</a
+    >
+  </li>
+  <li>
+    <a routerLink="profile" [queryParams]="{ id: 2 }" routerLinkActive="active"
+      >Profile User 2</a
+    >
+  </li>
+</ul>
 <router-outlet></router-outlet>
