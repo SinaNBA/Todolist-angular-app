@@ -3,33 +3,41 @@
 </div>
 
 <div class="box">
-  <!-- <% newListItems.forEach(function (item) { %> -->
   <form>
     <div class="item">
       <input
         type="text"
         placeholder="Enter a task"
         name="taskText"
-        [(ngModel)]="projectText"
+        #todoText
       />
-      <!-- <p><%= item.name %></p> -->
-      <button type="submit" (click)="addItem()">+</button>
+      <button type="submit" (click)="addItem(todoText.value)">+</button>
     </div>
-    <input type="hidden" name="listName" value="<%= listTitle %>" />
   </form>
 
-  <div class="box">
-    <p class="item" *ngFor="let item of projects; let i=index">{{ item }}<button (click)="removeItem(i)">-</button></p>
-
+  <div>
+    <table>
+      <tr>
+        <th>Index</th>
+        <th>Task</th>
+        <th>Done</th>
+        <th>Status</th>
+        <th>Actions</th>
+      </tr>
+      <tr *ngFor="let item of getTodoList(); let i = index">
+        <td>{{ i + 1 }}</td>
+        <td class="item">
+          {{ item.action }}
+        </td>
+        <td [ngSwitch]="item.done">
+          <input type="checkbox" [(ngModel)]="item.done">
+        </td>
+        <td [ngSwitch]="item.done">
+          <span *ngSwitchCase="true">Yes</span>
+          <span *ngSwitchCase="false">No</span>
+        </td>
+        <td><button (click)="removeItem(i)">-</button></td>
+      </tr>
+    </table>
   </div>
-
-  <!-- <form class="item" action="/" method="post">
-    <input
-      type="text"
-      name="newItem"
-      placeholder="New Item"
-      autocomplete="off"
-    />
-    <button type="submit" name="list" value="<%= listTitle %> ">+</button>
-  </form> -->
 </div>

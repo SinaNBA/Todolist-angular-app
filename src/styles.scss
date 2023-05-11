@@ -24,7 +24,7 @@ h1 {
 }
 
 .item {
-  min-height: 70px;
+
   display: flex;
   align-items: center;
   border-bottom: 1px solid #f1f1f1;
@@ -34,7 +34,7 @@ h1 {
   border-bottom: 0;
 }
 
-input:checked + p {
+input:checked + td {
   text-decoration: line-through;
   text-decoration-color: #a683e3;
 }
@@ -43,7 +43,7 @@ input[type="checkbox"] {
   margin: 20px;
 }
 
-p {
+td {
   margin: 0;
   padding: 20px;
   font-size: 20px;
@@ -66,7 +66,7 @@ button {
   font-size: 30px;
   border-width: 0;
 }
-button:hover{
+button:hover {
   color: darkorange;
   cursor: pointer;
 }
@@ -122,4 +122,25 @@ a:hover {
 
 .active {
   color: #a683e3;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td,
+th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
 }

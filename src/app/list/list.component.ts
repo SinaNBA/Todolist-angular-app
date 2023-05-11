@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Model, TodoItem } from 'src/models/model';
 
 @Component({
   selector: 'app-list',
@@ -7,21 +8,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListComponent implements OnInit {
   itemCounter: number = 0;
-  projectText: string = 'Angular Project ';
-  projects: any[]=[];
+  projects = new Model();
   constructor() {}
   ngOnInit(): void {
-    this.itemCounter = this.projects.length;
+    this.itemCounter = this.projects.items.length;
   }
 
-  addItem(): void {
-    this.projects.push(this.projectText);
-    this.projectText = '';
-    this.itemCounter = this.projects.length;
+  getTodoList() {
+    return this.projects.items;
+  }
+
+  addItem(newTask: string): void {
+    if (newTask != '') {
+      this.projects.items.push(new TodoItem(newTask,false));
+      this.itemCounter = this.projects.items.length;
+    }
   }
 
   removeItem(index: number): void {
-    this.projects.splice(index, 1);
-    this.itemCounter = this.projects.length;
+    this.projects.items.splice(index, 1);
+    this.itemCounter = this.projects.items.length;
   }
 }

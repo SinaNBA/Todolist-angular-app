@@ -5,24 +5,24 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AboutComponent } from './about/about.component';
 import { ListComponent } from './list/list.component';
-import { HomeComponent } from './home/home.component';
 import { FormsModule } from '@angular/forms';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { ProfileComponent } from './profile/profile.component';
+import { HomeModule } from './home/home.module';
 
 @NgModule({
-  declarations: [		
+  declarations: [
     AppComponent,
     AboutComponent,
     ListComponent,
-      HomeComponent,
       PageNotFoundComponent,
       ProfileComponent
    ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -8,6 +8,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class ProfileComponent implements OnInit {
   constructor(private route: ActivatedRoute, private router: Router) {
+    console.log('Now Created');
+
     this.route.queryParamMap.subscribe((params) =>
       console.log(params.get('id'))
     );
