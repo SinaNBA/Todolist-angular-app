@@ -1,6 +1,6 @@
 export class Model {
-  user;
-  items;
+  user:string;
+  items:TodoItem[];
   constructor() {
     this.user = 'Sina';
     this.items = [

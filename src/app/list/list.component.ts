@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Model, TodoItem } from 'src/models/model';
 
 @Component({
@@ -7,26 +7,12 @@ import { Model, TodoItem } from 'src/models/model';
   styleUrls: ['./list.component.scss'],
 })
 export class ListComponent implements OnInit {
-  itemCounter: number = 0;
-  projects = new Model();
+  @Input() model!: Model;
+  @Output() indexToRemove = new EventEmitter();
   constructor() {}
-  ngOnInit(): void {
-    this.itemCounter = this.projects.items.length;
-  }
+  ngOnInit(): void {}
 
-  getTodoList() {
-    return this.projects.items;
-  }
-
-  addItem(newTask: string): void {
-    if (newTask != '') {
-      this.projects.items.push(new TodoItem(newTask,false));
-      this.itemCounter = this.projects.items.length;
-    }
-  }
-
-  removeItem(index: number): void {
-    this.projects.items.splice(index, 1);
-    this.itemCounter = this.projects.items.length;
+  sendEvent(i: number) {
+    this.indexToRemove.emit(i);
   }
 }

@@ -1,4 +1,4 @@
-<h1 style="color: blueviolet;">{{getName()}} To Do List</h1>
+<h1 style="color: blueviolet">{{ getName() }} To Do List</h1>
 <ul>
   <li>
     <a
@@ -9,7 +9,6 @@
     >
   </li>
   <li><a routerLink="about" routerLinkActive="active">About</a></li>
-  <li><a routerLink="list" routerLinkActive="active">Todo List</a></li>
   <li>
     <a routerLink="profile" [queryParams]="{ id: 1 }" routerLinkActive="active"
       >Profile User 1</a
@@ -21,4 +20,16 @@
     >
   </li>
 </ul>
+
 <router-outlet></router-outlet>
+
+<div class="box" *ngIf="router.url==='/'">
+  <form>
+    <div class="item">
+      <input type="text" placeholder="Enter a task" name="taskText" #todoText />
+      <button type="submit" (click)="addItem(todoText.value)">+</button>
+    </div>
+  </form>
+  <app-list [model]="model" (indexToRemove)="removeItem($event)"></app-list>
+</div>
+

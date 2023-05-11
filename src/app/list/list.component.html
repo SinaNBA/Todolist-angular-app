@@ -1,19 +1,6 @@
 <div class="box" id="heading">
-  <h1>Todo List ({{ itemCounter }})</h1>
+  <h1>Todo List ({{ model.items.length }})</h1>
 </div>
-
-<div class="box">
-  <form>
-    <div class="item">
-      <input
-        type="text"
-        placeholder="Enter a task"
-        name="taskText"
-        #todoText
-      />
-      <button type="submit" (click)="addItem(todoText.value)">+</button>
-    </div>
-  </form>
 
   <div>
     <table>
@@ -24,7 +11,7 @@
         <th>Status</th>
         <th>Actions</th>
       </tr>
-      <tr *ngFor="let item of getTodoList(); let i = index">
+      <tr *ngFor="let item of model.items; let i = index">
         <td>{{ i + 1 }}</td>
         <td class="item">
           {{ item.action }}
@@ -36,8 +23,8 @@
           <span *ngSwitchCase="true">Yes</span>
           <span *ngSwitchCase="false">No</span>
         </td>
-        <td><button (click)="removeItem(i)">-</button></td>
+        <td><button (click)="sendEvent(i)">-</button></td>
       </tr>
     </table>
   </div>
-</div>
+
